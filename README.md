@@ -2,7 +2,11 @@
 1- How many DaemonSets are created in the cluster in all namespaces?
 
 2- what DaemonSets exist on the kube-system namespace?
-
+```
+kubectl get ds -n kube-system
+NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   7d3h
+```
 3- What is the image used by the POD deployed by the kube-proxy DaemonSet
 
 4- Deploy a DaemonSet for FluentD Logging. Use the given specifications.
