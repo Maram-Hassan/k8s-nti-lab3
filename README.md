@@ -1,6 +1,9 @@
 # k8s-nti-lab3
 1- How many DaemonSets are created in the cluster in all namespaces?
-
+```
+kubectl get daemonsets --all-namespaces --no-headers 
+kube-system   kube-proxy   1     1     1     1     1     kubernetes.io/os=linux   11d
+```
 2- what DaemonSets exist on the kube-system namespace?
 ```
 kubectl get ds -n kube-system
@@ -8,7 +11,9 @@ NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   7d3h
 ```
 3- What is the image used by the POD deployed by the kube-proxy DaemonSet
-
+```
+ registry.k8s.io/kube-proxy:v1.30.0
+```
 4- Deploy a DaemonSet for FluentD Logging. Use the given specifications.
 
 Name: elasticsearch
@@ -24,7 +29,9 @@ Image: k8s.gcr.io/fluentd-elasticsearch:1.20
 7- Create a service backend-service to expose the backend application within the cluster on port 80.
 
 8- try to curl the backend-service from the test pod. What is the response?
-
+```
+nginx welcome image
+```
 9- Create a deployment named web-app using the image nginx with 2 replicas
 
 10- Expose the web-app as service web-app-service application on port 80 and nodeport 30082 on the nodes on the cluster
@@ -32,5 +39,7 @@ Image: k8s.gcr.io/fluentd-elasticsearch:1.20
 11- access the web app from the node
 
 12- How many static pods exist in this cluster in all namespaces?
-
+```
+0
+```
 13-On which nodes are the static pods created currently?
